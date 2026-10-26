@@ -1,0 +1,9 @@
+# Archivos con datos sensibles del paciente (documentos fuente originales)
+TRABAJO TERCER MOMENTO NEURO Vs2 1 noche.docx
+informe.txt
+*.docx
+*.txt
+
+# Archivos del sistema y temporales
+.DS_Store
+Thumbs.db

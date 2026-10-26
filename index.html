@@ -1,0 +1,451 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Conozcamos nuestra memoria y cuidemos nuestra salud mental · Cartilla psicoeducativa</title>
+  <meta name="description" content="Cartilla digital interactiva para comprender una evaluación neuropsicológica: por qué se hizo, qué pruebas se usaron, qué significan los resultados y cómo cuidarse cada día.">
+  <meta name="robots" content="noindex, nofollow">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='18' fill='%23dff4f1'/%3E%3Ccircle cx='24' cy='34' r='13' fill='%23f7b6c9'/%3E%3Ccircle cx='40' cy='34' r='13' fill='%23f7b6c9'/%3E%3Ccircle cx='28' cy='22' r='11' fill='%23f7b6c9'/%3E%3Ccircle cx='38' cy='22' r='11' fill='%23f7b6c9'/%3E%3C/svg%3E">
+  <link rel="stylesheet" href="styles.css">
+  <style>.modebar{display:flex;flex-wrap:wrap;gap:.6rem;align-items:center;margin-bottom:var(--sp-3);padding:.6rem var(--sp-2);background:var(--card);border:1px solid var(--line);border-radius:var(--r-m)}.modebar strong{font-size:.95rem;color:var(--ink-soft)}</style>
+</head>
+<body data-modo="breve">
+  <script>document.documentElement.classList.add('js');</script>
+  <a class="skip" href="#contenido">Saltar al contenido</a>
+
+  <header class="topbar">
+    <div class="brand">
+      <span data-icon="brain" data-bg="var(--pink-100)"></span>
+      <span>Cartilla de memoria y salud mental</span>
+    </div>
+    <div class="tools" role="group" aria-label="Opciones de lectura">
+      <button type="button" class="btn menu-toggle" id="btn-menu" aria-expanded="false" aria-controls="sidebar">☰ Ver capítulos</button>
+      <span class="group" role="group" aria-label="Tamaño del texto">
+        <span class="group-label">Texto</span>
+        <button type="button" class="btn" id="btn-menos" aria-label="Reducir el tamaño del texto">A−</button>
+        <button type="button" class="btn" id="btn-mas" aria-label="Aumentar el tamaño del texto">A+</button>
+      </span>
+      <button type="button" class="btn" id="btn-motion" aria-pressed="false">Reducir animaciones</button>
+    </div>
+  </header>
+
+  <div class="shell">
+    <nav class="sidebar" id="sidebar" aria-label="Capítulos de la cartilla">
+      <div class="progress">
+        <div class="progress-label" id="progress-label">Avance de lectura: 0 de 11 capítulos</div>
+        <div class="progress-track" role="progressbar" aria-labelledby="progress-label" aria-valuemin="0" aria-valuemax="11" aria-valuenow="0"><div class="progress-bar" id="progress-bar"></div></div>
+        <p class="progress-note">Muestra cuántos capítulos has leído. No mide tu memoria ni tus capacidades.</p>
+      </div>
+      <h2>Capítulos</h2>
+      <ol class="chapters" id="chapters"></ol>
+    </nav>
+
+    <main id="contenido">
+      <div class="modebar" role="group" aria-label="Cantidad de explicación">
+        <strong>¿Cuánta explicación quieres?</strong>
+        <button type="button" class="btn btn--small" id="modo-breve" aria-pressed="true">Explicación breve</button>
+        <button type="button" class="btn btn--small" id="modo-mas" aria-pressed="false">Quiero saber un poco más</button>
+        <span id="modo-hint" class="small" style="font-weight:700;color:var(--teal-700);margin-left:.4rem"></span>
+      </div>
+
+      <!-- 1. BIENVENIDA -->
+      <section class="chapter" id="cap-1" data-cap="1" aria-labelledby="h-1" tabindex="-1">
+        <div class="hero">
+          <div>
+            <span class="kicker">Capítulo 1 · Bienvenida</span>
+            <h1 id="h-1" tabindex="-1">Conozcamos nuestra memoria y cuidemos nuestra salud mental</h1>
+            <p class="sub">Una guía sencilla para entender tu evaluación, conocer tus capacidades y cuidarte cada día.</p>
+            <p id="nombre-bienvenida" class="lead" hidden></p>
+            <button type="button" class="btn btn--primary btn--big" data-go="2">Comenzar mi recorrido →</button>
+            <p class="step-hint"><span data-icon="star" data-bg="var(--yellow-100)" class="ico ico--sm"></span><span>Vamos paso a paso. No necesitas saber de psicología para comprender esta guía.</span></p>
+            <div class="card tone-teal mas reveal" style="margin-top:var(--sp-3)">
+              <h4>Información técnica del informe</h4>
+              <p>Evaluación neuropsicológica integral de 4 sesiones con 7 instrumentos clínicos estandarizados (funcionales, afectivos y cognitivos) y comparación con baremos normativos por edad y escolaridad.</p>
+            </div>
+          </div>
+          <div class="hero-art" id="portada-art"></div>
+        </div>
+        <div class="grid grid--3 reveal" style="margin-top:var(--sp-4)">
+          <div class="card tone-teal"><span class="ico ico--sm" data-icon="book" data-bg="#fff"></span><h3>Palabras sencillas</h3><p>Cada idea se explica con ejemplos de la vida diaria.</p></div>
+          <div class="card tone-lav"><span class="ico ico--sm" data-icon="clock" data-bg="#fff"></span><h3>A tu ritmo</h3><p>Nada avanza solo. Tú decides cuándo pasar al siguiente capítulo.</p></div>
+          <div class="card tone-yellow"><span class="ico ico--sm" data-icon="chat" data-bg="#fff"></span><h3>Para conversar</h3><p>Puedes leerla sola o con tu familia, y llevar tus dudas a tu profesional.</p></div>
+        </div>
+        <div class="callout callout--lav reveal">
+          <span class="ico" data-icon="cross" data-bg="#fff"></span>
+          <p><em>Importante:</em> esta cartilla explica tu informe con palabras sencillas. No lo reemplaza ni cambia sus conclusiones. Si algo no te queda claro, pregunta a tu profesional.</p>
+        </div>
+      </section>
+
+      <!-- 2. ¿POR QUÉ ME EVALUARON? -->
+      <section class="chapter" id="cap-2" data-cap="2" aria-labelledby="h-2" tabindex="-1" hidden>
+        <header>
+          <span class="kicker">Capítulo 2 de 11</span>
+          <h2 id="h-2" tabindex="-1">¿Por qué me evaluaron?</h2>
+          <p class="lead">Para conocer mejor cómo funcionan tu memoria y otras capacidades de pensamiento, y distinguir los cambios esperables con los años de las señales que merecieran más atención.</p>
+        </header>
+
+        <div class="card tone-blue reveal">
+          <h3>Lo que tú contaste</h3>
+          <ul class="list-clean">
+            <li>Lo que más te preocupa es sentir que tu memoria <em>no funciona como antes</em>.</li>
+            <li>Notas olvidos de <em>dónde guardas las cosas</em> y de <em>citas que programas</em>. Por eso anotas todo.</li>
+            <li>Esto ocurre desde hace <em>más o menos un año</em>.</li>
+            <li class="mas">También cuentas que a veces te cuesta quedarte dormida o duermes poco, y que a ratos duermes durante el día. Esto también viene ocurriendo desde hace cerca de un año.</li>
+            <li class="mas">En tu familia hay antecedentes de Alzheimer. Es un dato que el profesional tiene en cuenta, pero por sí solo no define lo que le ocurrirá a una persona.</li>
+          </ul>
+          <p class="pending">Los resultados de la evaluación aparecen en los capítulos 4 y 5.</p>
+        </div>
+
+        <h3 class="section-title">Una evaluación puede explorar seis áreas</h3>
+        <div class="grid grid--3 reveal">
+          <div class="card area-tile tone-pink"><span class="ico" data-icon="brain" data-bg="#fff"></span><h4>Memoria</h4><p>Registrar, guardar y recordar.</p></div>
+          <div class="card area-tile tone-yellow"><span class="ico" data-icon="bulb" data-bg="#fff"></span><h4>Atención</h4><p>Concentrarse y seguir una tarea.</p></div>
+          <div class="card area-tile tone-blue"><span class="ico" data-icon="speech" data-bg="#fff"></span><h4>Lenguaje</h4><p>Hablar, entender y encontrar palabras.</p></div>
+          <div class="card area-tile tone-teal"><span class="ico" data-icon="clipboard" data-bg="#fff"></span><h4>Organización</h4><p>Planear, decidir y resolver problemas.</p></div>
+          <div class="card area-tile tone-lav"><span class="ico" data-icon="sunCloud" data-bg="#fff"></span><h4>Estado de ánimo</h4><p>Cómo nos sentimos.</p></div>
+          <div class="card area-tile tone-teal"><span class="ico" data-icon="house" data-bg="#fff"></span><h4>Independencia</h4><p>Hacer nuestras actividades de cada día.</p></div>
+        </div>
+
+        <h3 class="section-title">Situaciones de todos los días</h3>
+        <div class="grid grid--2 reveal">
+          <div class="card example-card"><span class="ico" data-icon="calendar" data-bg="var(--blue-100)"></span><p>Recordar una cita.</p></div>
+          <div class="card example-card"><span class="ico" data-icon="speech" data-bg="var(--lav-100)"></span><p>Seguir una conversación.</p></div>
+          <div class="card example-card"><span class="ico" data-icon="words" data-bg="var(--pink-100)"></span><p>Encontrar una palabra.</p></div>
+          <div class="card example-card"><span class="ico" data-icon="basket" data-bg="var(--yellow-100)"></span><p>Organizar una compra.</p></div>
+          <div class="card example-card"><span class="ico" data-icon="plate" data-bg="var(--teal-100)"></span><p>Preparar una comida.</p></div>
+        </div>
+
+        <div class="callout reveal">
+          <span class="ico" data-icon="puzzle" data-bg="#fff"></span>
+          <div>
+            <p><em>Ninguna prueba cuenta toda la historia.</em> La evaluación junta varias fuentes de información, como la conversación, la observación y las pruebas. Una sola prueba no explica por completo a una persona.</p>
+            <ul class="sources" aria-label="Fuentes de información de la evaluación"><li>Entrevista</li><li>Observación</li><li>Escalas</li><li>Pruebas de capacidades</li></ul>
+            <p class="small mas">En tu caso se realizaron 4 sesiones de evaluación.</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- 3. ¿CÓMO FUNCIONA MI MEMORIA? -->
+      <section class="chapter" id="cap-3" data-cap="3" aria-labelledby="h-3" tabindex="-1" hidden>
+        <header>
+          <span class="kicker">Capítulo 3 de 11</span>
+          <h2 id="h-3" tabindex="-1">¿Cómo funciona mi memoria?</h2>
+          <p class="lead">Recordar tiene tres momentos. Casi nunca los notamos, pero ocurren cada vez que aprendemos algo.</p>
+        </header>
+
+        <div class="process reveal">
+          <div class="card tone-blue"><span class="ico" data-icon="eye" data-bg="#fff"></span><h3>Prestar atención y registrar</h3><p>Notar la información y recibirla. Es como <em>recibir un libro</em> nuevo.</p></div>
+          <div class="card tone-yellow"><span class="ico" data-icon="shelf" data-bg="#fff"></span><h3>Guardar</h3><p>Conservar lo aprendido. Es como <em>colocar el libro</em> en su lugar.</p></div>
+          <div class="card tone-pink"><span class="ico" data-icon="bulb" data-bg="#fff"></span><h3>Recordar</h3><p>Recuperar la información cuando la necesitamos. Es como <em>encontrar el libro</em> después.</p></div>
+        </div>
+        <p class="small">La biblioteca es solo una comparación para entender el proceso. La memoria real no funciona con estantes ni libros.</p>
+
+        <div class="card tone-lav reveal" style="margin-top:var(--sp-3)">
+          <h3>Un ejemplo cotidiano</h3>
+          <p class="lead" style="margin:0">“Cuando conoces a alguien, primero escuchas su nombre. Después lo guardas. Más adelante intentas recordarlo.”</p>
+        </div>
+
+        <!-- Actividad A -->
+        <section class="activity" aria-labelledby="act-a">
+          <header>
+            <h3 id="act-a">Actividad A · El recorrido de un recuerdo</h3>
+            <span class="tag">Actividad para comprender</span>
+          </header>
+          <p>Pulsa “Continuar” para seguir el recorrido de un nombre: <em>Ana</em>.</p>
+          <div class="stage" id="stage-a" aria-live="polite"></div>
+          <ol class="steps-dots" id="dots-a" aria-label="Pasos del recorrido"></ol>
+          <div class="stage-caption" id="caption-a" aria-live="polite"></div>
+          <div class="actions">
+            <button type="button" class="btn" id="a-prev" disabled>← Paso anterior</button>
+            <button type="button" class="btn btn--primary" id="a-next">Continuar →</button>
+          </div>
+          <p class="disclaimer">Estas actividades ayudan a comprender la información; no son pruebas diagnósticas.</p>
+        </section>
+
+        <h3 class="section-title">Lo que puede influir en cómo recordamos</h3>
+        <p>A cualquier persona le puede costar más recordar en ciertos momentos. Esto es general y <em>no significa</em> que sea la causa en ningún caso en particular.</p>
+        <div class="grid grid--2 reveal">
+          <div class="card"><span class="ico ico--sm" data-icon="moon" data-bg="var(--lav-100)"></span><h4>El sueño</h4><p>Descansar ayuda a que lo aprendido se asiente. Dormir poco puede dificultar recordar.</p></div>
+          <div class="card"><span class="ico ico--sm" data-icon="one" data-bg="var(--blue-100)"></span><h4>La atención</h4><p>Si hacemos varias cosas a la vez, la información se registra peor.</p></div>
+          <div class="card"><span class="ico ico--sm" data-icon="rain" data-bg="var(--yellow-100)"></span><h4>Las preocupaciones</h4><p>Cuando la mente está ocupada con inquietudes, queda menos espacio para registrar lo nuevo.</p></div>
+          <div class="card"><span class="ico ico--sm" data-icon="sunCloud" data-bg="var(--pink-100)"></span><h4>El estado de ánimo</h4><p>La tristeza o el desánimo pueden hacer más difícil concentrarse y recordar.</p></div>
+        </div>
+      </section>
+
+      <!-- 4. CONOZCAMOS LAS PRUEBAS -->
+      <section class="chapter" id="cap-4" data-cap="4" aria-labelledby="h-4" tabindex="-1" hidden>
+        <header>
+          <span class="kicker">Capítulo 4 de 11</span>
+          <h2 id="h-4" tabindex="-1">Conozcamos las pruebas</h2>
+          <p class="lead">Se aplicaron siete pruebas. Cada una mira algo distinto. Elige una para ver para qué sirve y qué encontró.</p>
+        </header>
+        <div class="callout callout--yellow"><span class="ico" data-icon="alert" data-bg="#fff"></span><p>Los dibujos son escenas de ejemplo de la vida diaria. <em>No muestran los ejercicios reales</em> de las pruebas.</p></div>
+        <ul class="test-select" id="test-select" aria-label="Elegir una prueba"></ul>
+        <div id="pruebas-root"></div>
+      </section>
+
+      <!-- 5. ENTENDAMOS MIS RESULTADOS -->
+      <section class="chapter" id="cap-5" data-cap="5" aria-labelledby="h-5" tabindex="-1" hidden>
+        <header>
+          <span class="kicker">Capítulo 5 de 11</span>
+          <h2 id="h-5" tabindex="-1">Entendamos mis resultados</h2>
+          <p class="lead">Cada prueba mide algo distinto y con su propia escala. Por eso <em>no se comparan entre sí</em>: se leen una por una.</p>
+        </header>
+        <div id="fortalezas-root"></div>
+        <div id="resultados-root"></div>
+      </section>
+
+      <!-- 6. CONCLUSIÓN -->
+      <section class="chapter" id="cap-6" data-cap="6" aria-labelledby="h-6" tabindex="-1" hidden>
+        <header>
+          <span class="kicker">Capítulo 6 de 11</span>
+          <h2 id="h-6" tabindex="-1">¿Qué significa la conclusión?</h2>
+          <p class="lead">Así explica tu informe, con palabras de todos los días, lo que concluyó el profesional.</p>
+        </header>
+        <div class="sequence">
+          <article class="card tone-teal reveal">
+            <h3>Lo que encontró la evaluación</h3>
+            <ul class="list-clean">
+              <li>Tu funcionamiento mental global se encontró <em>conservado</em>. El informe lo describe como compatible con un envejecimiento cognitivo saludable y con una alta reserva cognitiva.</li>
+              <li>Eres <em>independiente</em> en tus actividades básicas y en las que necesitan más organización, como compras, dinero y medicación.</li>
+              <li>El informe <em>descarta</em> un trastorno neurocognitivo (leve o mayor) y una demencia.</li>
+              <li>En el ánimo, hay síntomas depresivos leves, sin llegar a lo que se llama episodio depresivo mayor. La ansiedad y el estrés están dentro de lo esperado.</li>
+              <li class="mas">Reserva cognitiva es una comparación con un “fondo de ahorro” mental: se forma con estudio, lectura, trabajo y conversación, y ayuda al cerebro a afrontar cambios.</li>
+            </ul>
+          </article>
+          <article class="card tone-blue reveal">
+            <h3>Lo que significa en tu vida diaria</h3>
+            <ul class="list-clean">
+              <li>Los olvidos que sientes <em>son reales y merecen atención</em>. Hasta ahora, según las pruebas, no han quitado independencia a tu vida.</li>
+              <li>Tus puntos fuertes, como el vocabulario, el razonamiento con palabras y la planeación, te sirven de apoyo todos los días.</li>
+              <li>Las tareas que piden <em>rapidez</em> o ordenar información en la mente pueden costarte un poco más. El informe lo relaciona con un estilo cuidadoso y con la edad.</li>
+              <li>Recordar después de un rato fue un poco más difícil. Las <em>pistas</em> te ayudaron a encontrar lo que habías aprendido.</li>
+            </ul>
+          </article>
+          <article class="card tone-lav reveal">
+            <h3>Lo que conviene seguir observando</h3>
+            <ul class="list-clean watch">
+              <li>El recuerdo de información después de un tiempo (evocación diferida).</li>
+              <li>La rapidez en algunas tareas.</li>
+              <li>El estado de ánimo, los intereses y la motivación.</li>
+              <li>El informe contempla una <em>nueva evaluación</em> al terminar el plan y un seguimiento anual con control médico.</li>
+            </ul>
+            <p class="pending">Fechas del seguimiento: Información pendiente de confirmar.</p>
+          </article>
+        </div>
+
+        <h3 class="section-title">Tres cosas diferentes</h3>
+        <div class="distinguish reveal">
+          <div class="card tone-yellow"><h4><span class="ico ico--sm" data-icon="chat" data-bg="#fff"></span>Una queja de memoria</h4><p>Es lo que tú sientes y cuentas: “me olvido de dónde dejo las cosas”. Es válida y es el motivo para consultar.</p></div>
+          <div class="card tone-blue"><h4><span class="ico ico--sm" data-icon="clipboard" data-bg="#fff"></span>Los hallazgos de las pruebas</h4><p>Es lo que se midió: cómo rindió cada capacidad en estas sesiones, comparado con personas de su edad y escolaridad.</p></div>
+          <div class="card tone-teal"><h4><span class="ico ico--sm" data-icon="cross" data-bg="#fff"></span>Un diagnóstico confirmado</h4><p>Es la conclusión del profesional. Aquí el informe <em>no establece</em> una enfermedad de la memoria. Descarta trastorno neurocognitivo y demencia, y lo resume como envejecimiento normal con alta reserva cognitiva.</p><p class="small mas">Impresión diagnóstica orientativa del informe: Z03.89 (evaluación sin alteración).</p></div>
+        </div>
+
+        <div class="callout callout--lav reveal">
+          <span class="ico" data-icon="heart" data-bg="#fff"></span>
+          <p>Esto <em>no significa que no haya nada que cuidar</em>: tus olvidos y tu ánimo merecen atención. Y una evaluación describe cómo estás hoy; no puede asegurar lo que pasará más adelante. Por eso el seguimiento es importante.</p>
+        </div>
+      </section>
+
+      <!-- 7. VIDA DIARIA -->
+      <section class="chapter" id="cap-7" data-cap="7" aria-labelledby="h-7" tabindex="-1" hidden>
+        <header>
+          <span class="kicker">Capítulo 7 de 11</span>
+          <h2 id="h-7" tabindex="-1">Mi memoria en la vida diaria</h2>
+          <p class="lead">Lo que encontró la evaluación se nota en cosas concretas de cada día.</p>
+        </header>
+        <div class="two-cols">
+          <div class="card tone-teal reveal">
+            <h3>Lo que te funciona bien</h3>
+            <ul class="list-clean">
+              <li>Sabes dónde estás, en qué día y en qué lugar.</li>
+              <li>Te expresas con claridad y sigues una conversación.</li>
+              <li>Manejas sola tus compras, tu dinero y tu medicación.</li>
+              <li>Tienes un vocabulario amplio y mucho conocimiento general.</li>
+              <li>Planeas bien y haces cuentas mentales con facilidad.</li>
+              <li class="mas">Mantienes el hábito de leer entre dos y tres horas al día.</li>
+            </ul>
+          </div>
+          <div class="card tone-lav reveal">
+            <h3>Lo que conviene apoyar</h3>
+            <ul class="list-clean support">
+              <li>Recordar algo después de un rato.</li>
+              <li>Tareas con tiempo, donde la rapidez cuenta.</li>
+              <li>Ordenar palabras de memoria o recordar el orden de una secuencia visual.</li>
+              <li class="mas">Resolver rompecabezas visuales con buen tiempo.</li>
+            </ul>
+          </div>
+        </div>
+        <div class="callout callout--yellow reveal">
+          <span class="ico" data-icon="star" data-bg="#fff"></span>
+          <p><em>Ya usas una buena estrategia:</em> anotar. Los apoyos externos los usan personas de todas las edades. <span class="mas">En algunas tareas el informe observa que trabajas de forma cuidadosa y pausada. Eso puede ser un estilo, no un defecto. Sentir frustración cuando una tarea corre contra el tiempo es comprensible.</span></p>
+        </div>
+
+        <!-- Actividad B -->
+        <section class="activity" aria-labelledby="act-b">
+          <header>
+            <h3 id="act-b">Actividad B · Una estrategia para cada situación</h3>
+            <span class="tag">Actividad para comprender</span>
+          </header>
+          <p>Primero elige una situación. Luego elige el apoyo que te parezca más útil. No hay respuestas “malas”: cada elección trae una explicación.</p>
+          <div class="match">
+            <div><h4 id="sit-title">1. Una situación</h4><ul class="match-list" id="sit-list" aria-labelledby="sit-title"></ul></div>
+            <div><h4 id="est-title">2. Un apoyo</h4><ul class="match-list" id="est-list" aria-labelledby="est-title"></ul></div>
+          </div>
+          <div class="feedback" id="b-feedback" role="status" aria-live="polite"></div>
+          <div class="actions"><button type="button" class="btn" id="b-reset">Volver a empezar</button></div>
+          <p class="disclaimer">Estas actividades ayudan a comprender la información; no son pruebas diagnósticas.</p>
+        </section>
+      </section>
+
+      <!-- 8. CÓMO PUEDO CUIDARME -->
+      <section class="chapter" id="cap-8" data-cap="8" aria-labelledby="h-8" tabindex="-1" hidden>
+        <header>
+          <span class="kicker">Capítulo 8 de 11</span>
+          <h2 id="h-8" tabindex="-1">¿Cómo puedo cuidarme?</h2>
+          <p class="lead">Pequeños hábitos hacen la vida diaria más fácil y cuidan la mente.</p>
+        </header>
+        <h3>Ideas generales para cualquier persona</h3>
+        <div class="grid grid--3 reveal">
+          <div class="card care-card tone-blue"><span class="ico" data-icon="calendar" data-bg="#fff"></span><h4>Agenda o calendario</h4><p>Anota citas y tareas. Una alarma en el celular también sirve.</p></div>
+          <div class="card care-card tone-yellow"><span class="ico" data-icon="key" data-bg="#fff"></span><h4>Un lugar fijo</h4><p>Guarda llaves, gafas y documentos siempre en el mismo sitio.</p></div>
+          <div class="card care-card tone-lav"><span class="ico" data-icon="one" data-bg="#fff"></span><h4>Una cosa a la vez</h4><p>Termina una actividad antes de empezar otra.</p></div>
+          <div class="card care-card tone-pink"><span class="ico" data-icon="people" data-bg="#fff"></span><h4>Actividades agradables y vínculos</h4><p>Compartir, servir y conversar con otras personas hace bien.</p></div>
+          <div class="card care-card tone-teal"><span class="ico" data-icon="moon" data-bg="#fff"></span><h4>Descanso con rutina</h4><p>Acostarte y levantarte a horas parecidas ayuda al sueño.</p></div>
+          <div class="card care-card tone-blue"><span class="ico" data-icon="cross" data-bg="#fff"></span><h4>Indicaciones del equipo de salud</h4><p>Sigue las indicaciones de tu equipo de salud y asiste a tus controles.</p></div>
+        </div>
+
+        <h3 class="section-title">Lo que propone tu informe</h3>
+        <p>Estas son las recomendaciones <em>individuales</em> de tu profesional: un plan de 24 semanas, con una sesión semanal de 60 minutos y una tarea diaria de unos 20 minutos en casa.</p>
+        <ol class="timeline" id="plan-timeline"></ol>
+        <p class="pending">Fechas de inicio y horarios: Información pendiente de confirmar.</p>
+      </section>
+
+      <!-- 9. FAMILIA -->
+      <section class="chapter" id="cap-9" data-cap="9" aria-labelledby="h-9" tabindex="-1" hidden>
+        <header>
+          <span class="kicker">Capítulo 9 de 11</span>
+          <h2 id="h-9" tabindex="-1">¿Cómo puede ayudar mi familia?</h2>
+          <p class="lead">Puedes leer este capítulo con tus seres queridos. Ayudar bien es acompañar sin quitar la autonomía.</p>
+        </header>
+        <div class="quote">“Acompañar también es permitir que la persona siga haciendo lo que puede.”</div>
+        <h3>Maneras concretas de acompañar</h3>
+        <div class="grid grid--3 reveal">
+          <div class="card care-card tone-pink"><span class="ico" data-icon="ear" data-bg="#fff"></span><h4>Escuchar sin burlarse</h4><p>Un olvido no es motivo de risa. Escuchar con respeto da confianza.</p></div>
+          <div class="card care-card tone-blue"><span class="ico" data-icon="clock" data-bg="#fff"></span><h4>Dar tiempo para responder</h4><p>No terminar las frases. Esperar con calma.</p></div>
+          <div class="card care-card tone-yellow"><span class="ico" data-icon="calendar" data-bg="#fff"></span><h4>Recordatorios respetuosos</h4><p>Una nota o una alarma en lugar de corregir una y otra vez.</p></div>
+          <div class="card care-card tone-lav"><span class="ico" data-icon="chat" data-bg="#fff"></span><h4>Preguntar antes de ayudar</h4><p>“¿Quieres que te ayude con esto?” respeta su decisión.</p></div>
+          <div class="card care-card tone-teal"><span class="ico" data-icon="walk" data-bg="#fff"></span><h4>Favorecer la independencia</h4><p>No hacer por ella lo que puede hacer sola.</p></div>
+          <div class="card care-card tone-pink"><span class="ico" data-icon="cross" data-bg="#fff"></span><h4>Acompañar a las consultas</h4><p>Solo si la persona lo desea.</p></div>
+        </div>
+        <h3 class="section-title">Lo que pide tu informe a la familia</h3>
+        <div class="card tone-lav reveal"><ul class="list-clean support" id="familia-informe"></ul></div>
+      </section>
+
+      <!-- 10. CUÁNDO CONSULTAR -->
+      <section class="chapter" id="cap-10" data-cap="10" aria-labelledby="h-10" tabindex="-1" hidden>
+        <header>
+          <span class="kicker">Capítulo 10 de 11</span>
+          <h2 id="h-10" tabindex="-1">¿Cuándo debo consultar?</h2>
+          <p class="lead">Olvidar de vez en cuando es frecuente a cualquier edad. Lo que importa es si los cambios aparecen con frecuencia, empeoran o afectan la vida diaria.</p>
+        </header>
+        <div class="two-cols">
+          <article class="alert-col alert-col--talk reveal">
+            <h3><span class="ico" data-icon="chat" data-bg="#fff"></span>Conviene comentarlo en una consulta</h3>
+            <ul class="list-clean watch">
+              <li>Olvidos que se repiten cada vez más y afectan la vida diaria.</li>
+              <li>Repetir varias veces la misma pregunta o historia.</li>
+              <li>Dificultad nueva para manejar dinero, citas o medicamentos.</li>
+              <li>Perderse en lugares conocidos.</li>
+              <li>Costar encontrar palabras mucho más que antes.</li>
+              <li>Cambios de ánimo o de carácter que preocupan a la persona o a su familia.</li>
+              <li>Tristeza, desánimo o falta de sueño que duran semanas.</li>
+            </ul>
+            <p>Pide una cita con tu profesional o tu equipo de salud.</p>
+          </article>
+          <article class="alert-col alert-col--urgent reveal">
+            <h3><span class="ico" data-icon="alert" data-bg="#fff"></span>Atención inmediata</h3>
+            <p>Si aparece <em>de forma repentina</em> alguno de estos cambios:</p>
+            <ul class="list-clean urgent">
+              <li>Confusión o desorientación súbita.</li>
+              <li>Dificultad repentina para hablar o entender.</li>
+              <li>Cara caída, o debilidad en un brazo o una pierna.</li>
+              <li>Pérdida repentina de la visión.</li>
+              <li>Dolor de cabeza muy fuerte y repentino.</li>
+              <li>Desmayo o convulsión.</li>
+              <li>Golpe en la cabeza seguido de sueño extremo o confusión.</li>
+              <li>Pensamientos de hacerse daño.</li>
+            </ul>
+            <p class="urgent-number">Llama de inmediato a emergencias: <span id="num-emergencias">123</span></p>
+            <p class="small">No esperes a ver si pasa. Si estás sola, pide a alguien que te acompañe.</p>
+          </article>
+        </div>
+        <p class="small">Esta lista es orientativa y no sirve para diagnosticarse a uno mismo. Se basa en información de fuentes sanitarias como el National Institute on Aging, la Alzheimer’s Association, el NHS (señales de ictus) y la OMS. Tu profesional te entregará un manual con señales de alarma y olvidos habituales.</p>
+
+        <!-- Actividad C -->
+        <section class="activity" aria-labelledby="act-c">
+          <header>
+            <h3 id="act-c">Actividad C · Mitos y realidades</h3>
+            <span class="tag">Actividad para comprender</span>
+          </header>
+          <p>Pulsa una tarjeta para descubrir la explicación. Puedes volver a pulsarla para taparla.</p>
+          <div class="myths" id="myths"></div>
+          <div class="actions"><button type="button" class="btn" id="c-reset">Volver a taparlas todas</button></div>
+          <p class="disclaimer">Estas actividades ayudan a comprender la información; no son pruebas diagnósticas.</p>
+        </section>
+      </section>
+
+      <!-- 11. RESUMEN -->
+      <section class="chapter" id="cap-11" data-cap="11" aria-labelledby="h-11" tabindex="-1" hidden>
+        <header>
+          <span class="kicker">Capítulo 11 de 11</span>
+          <h2 id="h-11" tabindex="-1">Mi resumen y mis compromisos</h2>
+          <p class="lead">Un último paso: elige hasta tres acciones realistas y llévate tu resumen.</p>
+        </header>
+
+        <!-- Actividad D -->
+        <section class="activity" aria-labelledby="act-d">
+          <header>
+            <h3 id="act-d">Actividad D · Mi pequeño plan de cuidado</h3>
+            <span class="tag">Actividad para comprender</span>
+          </header>
+          <p>Elige <em>hasta tres</em> acciones que te parezcan posibles esta semana.</p>
+          <ul class="plan-options" id="plan-options"></ul>
+          <div class="feedback" id="d-feedback" role="status" aria-live="polite"></div>
+          <div class="actions"><button type="button" class="btn" id="d-reset">Borrar mis elecciones</button></div>
+          <p class="disclaimer">Estas actividades ayudan a comprender la información; no son pruebas diagnósticas.</p>
+        </section>
+
+        <h3 class="section-title">Mi resumen</h3>
+        <div class="summary-sheet" id="resumen-root"></div>
+        <div class="actions" id="resumen-acciones" style="justify-content:flex-start;margin-top:var(--sp-3)">
+          <button type="button" class="btn btn--primary btn--big" id="btn-print">🖨 Imprimir mi resumen</button>
+        </div>
+
+        <p class="quote">Ahora entiendo por qué me evaluaron, para qué sirvió cada prueba, qué significan mis resultados y cómo puedo cuidarme.</p>
+
+        <details class="review no-print">
+          <summary>Notas para el profesional responsable (no se imprimen)</summary>
+          <p class="small">Puntos del informe que conviene revisar o confirmar antes de entregar esta cartilla al paciente. Se listan en <code>assets/revision.md</code> y en <code>DATOS.revision</code> dentro de <code>script.js</code>.</p>
+          <ul id="revision-list"></ul>
+        </details>
+      </section>
+
+      <nav class="pager" id="pager" aria-label="Pasar de capítulo">
+        <button type="button" class="btn" id="btn-prev">← Anterior</button>
+        <span class="where" id="where" aria-live="polite">Capítulo 1 de 11</span>
+        <button type="button" class="btn btn--primary" id="btn-next">Siguiente →</button>
+      </nav>
+    </main>
+  </div>
+
+  <footer class="site">
+    <p id="pie-fuente"></p>
+    <p>Esta cartilla es un recurso educativo. No sustituye la valoración de un profesional de la salud ni modifica las conclusiones del informe. No envía datos a ningún servidor: solo guarda en este dispositivo tus preferencias de lectura y tu avance.</p>
+  </footer>
+
+  <script src="assets/illustrations.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>
