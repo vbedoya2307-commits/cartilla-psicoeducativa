@@ -372,6 +372,7 @@ function ir(n, { foco = true } = {}) {
   $('#where').textContent = `Capítulo ${n} de 11 · ${CAPITULOS[n - 1]}`;
   actualizarAvance(); guardar();
   $('#sidebar').classList.remove('open'); $('#btn-menu').setAttribute('aria-expanded', 'false');
+  const backdropEl = $('#sidebar-backdrop'); if (backdropEl) backdropEl.classList.remove('active');
   window.scrollTo({ top: 0 });
   if (foco) { const h = $(`#h-${n}`); if (h) h.focus({ preventScroll: true }); }
   observarReveal();
@@ -591,10 +592,24 @@ function conectar() {
 
   $('#btn-prev').addEventListener('click', () => ir(estado.cap - 1));
   $('#btn-next').addEventListener('click', () => ir(estado.cap + 1));
+  const cerrarSidebar = () => {
+    $('#sidebar').classList.remove('open');
+    $('#btn-menu').setAttribute('aria-expanded', 'false');
+    const b = $('#sidebar-backdrop'); if (b) b.classList.remove('active');
+  };
+  const abrirSidebar = () => {
+    $('#sidebar').classList.add('open');
+    $('#btn-menu').setAttribute('aria-expanded', 'true');
+    const b = $('#sidebar-backdrop'); if (b) b.classList.add('active');
+  };
   $('#btn-menu').addEventListener('click', () => {
-    const s = $('#sidebar'), abierto = s.classList.toggle('open');
-    $('#btn-menu').setAttribute('aria-expanded', String(abierto));
+    const abierto = $('#sidebar').classList.contains('open');
+    if (abierto) cerrarSidebar(); else abrirSidebar();
   });
+  const btnClose = $('#btn-close-sidebar');
+  if (btnClose) btnClose.addEventListener('click', cerrarSidebar);
+  const backdrop = $('#sidebar-backdrop');
+  if (backdrop) backdrop.addEventListener('click', cerrarSidebar);
   $('#btn-menos').addEventListener('click', () => { estado.escala = Math.max(0.9, +(estado.escala - 0.1).toFixed(2)); aplicarEscala(); guardar(); });
   $('#btn-mas').addEventListener('click', () => { estado.escala = Math.min(1.6, +(estado.escala + 0.1).toFixed(2)); aplicarEscala(); guardar(); });
   $('#btn-motion').addEventListener('click', () => { estado.reducir = !estado.reducir; aplicarMovimiento(); guardar(); });
